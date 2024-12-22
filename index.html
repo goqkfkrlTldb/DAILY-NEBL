@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily NEBL</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+    <style>
+        .hero {
+            background: url('./image/cityview.webp') no-repeat center center/cover;
+            color: #fff;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero h2 {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            font-size: 2.5rem;
+            color: #214b6e;
+
+        }
+
+        .break {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-top:50px;
+            margin-bottom: -40px;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr; /* 기본: 세로로 나열 */
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .article {
+            background: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .article img {
+            width: 100%;
+            height: auto;
+        }
+
+        .article-content {
+            padding: 20px;
+        }
+
+        .rm {
+            color: rgb(255, 64, 0);
+            text-decoration: bold;
+        }
+
+        @media (max-width: 799px) {
+            .article {
+                display: flex; /* Flexbox 사용 */
+                flex-direction: row; /* 사진과 텍스트를 가로로 정렬 */
+                align-items: center;
+            }
+
+            .article:nth-child(odd) img {
+                order: 1;
+                margin-right: 20px;
+            }
+
+            .article:nth-child(odd) .article-content {
+                order: 2;
+            }
+
+            .article:nth-child(even) img {
+                order: 2;
+                margin-left: 20px;
+            }
+
+            .article:nth-child(even) .article-content {
+                order: 1;
+            }
+
+            .article img {
+                height: 100%;
+                width: auto;
+                max-width: 200px;
+                object-fit: cover;
+            }
+
+            .article-content {
+                flex: 1;
+            }
+        }
+
+        @media (min-width: 800px) {
+            .content {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .advertisement {
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            display: block;
+            cursor: pointer;
+        }
+
+        .advertisement .button{
+            position: absolute;
+            right: 0px;
+        }
+
+        .advertisement .ad {
+            max-height: 150px;
+            object-fit: cover
+        }
+
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="header"></div>
+
+    <div class="hero">
+        <h2>World's First Automation City!</h2>
+    </div>
+
+    <div class="break">
+        <h2>Breaking News</h2>
+    </div>
+
+    <div class="content">
+        <div class="article" data-link="article1.html">
+            <img src="./image/art3.webp" alt="Article 1">
+            <div class="article-content">
+                <h3>The Birth of Nebl City</h3>
+                <p>Humanity has finally constructed a fully automated city. Today marked the inauguration of this groundbreaking urban achievement. The ceremony was attended by the mayor and various officials, while prospective citizens looked on with anticipation for this new beginning.</p>
+                <p class="rm">Read More</p>
+            </div>
+        </div>
+        <div class="article" data-link="article2.html">
+            <img src="./image/newrobot1.webp" alt="Article 2">
+            <div class="article-content">      
+                <h3>Launch of SJ-01: Ushering in the Era of Complete Automation</h3>
+                <p>The release of the SJ-01 robot signifies a major milestone in the journey towards a fully automated system.</p>
+                <p class="rm">Read More</p>
+            </div>
+        </div>
+        <div class="article" data-link="article3.html">
+            <img src="./image/weather.webp" alt="Article 3">
+            <div class="article-content">
+                <h3>Sandstorm Disaster Level 5 Declared</h3>
+                <p>While Nebel City has officially been inaugurated, severe air pollution, including worsening sandstorms, continues to surpass disaster level 5, posing significant environmental challenges.</p>
+                <p class="rm">Read More</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.article').forEach(article => {
+        article.addEventListener('click', function () {
+                const link = this.getAttribute('data-link'); // data-link 속성에서 URL 가져오기
+                if (link) {
+                    window.location.href = link; // 해당 URL로 이동
+                }
+            });
+        });
+    </script>
+
+    <div class="advertisement" id="advertisement">
+        
+        <img class="button" src="./image/xbutton.png" width="30px" id="close-ad">
+        <img class="ad" src="./image/cityad6.jpg" width="100%">
+    </div>
+
+    <script>
+        document.getElementById("close-ad").addEventListener("click", function() {
+        document.getElementById("advertisement").style.display = "none";
+        });
+    </script>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+</body>
+</html>
+
