@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+    <style>
+        .article-container {
+            display: flex;
+            flex-wrap: wrap; 
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            gap: 40px;
+        }
+
+        .article-content {
+            flex: 3;
+            background: none;
+            padding: 0;
+        }
+
+        .article-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .article-content img {
+            width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 10px; 
+        }
+
+        .article-content p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .ad-section {
+            flex: 1;
+            position: fixed;
+            transform: translateY(-50%);
+            top: 50%;
+            right: 20px;
+            max-width: 300px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            display: block;
+            cursor: pointer;
+        }
+
+        .ad-section .button{
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
+
+        .ad-section .adImage {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        
+        /*@media (max-width: 768px) {
+            .article-container {
+                flex-direction: column;
+            }
+
+            .ad-section {
+                position: static;
+                margin-top: 20px;
+            }
+
+        }*/
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="header"></div>
+
+    <div class="article-container">
+   
+        <div class="article-content">
+            <h1>Sandstorm Disaster Level 5 Declared</h1>
+            <img src="./image/weather.webp" alt="Article Image">
+            <p>
+                While Nebel City has officially been inaugurated, severe air pollution, including worsening sandstorms, continues to surpass disaster level 5, posing significant environmental challenges. Experts have described the current severity of sandstorms as "the worst on record," warning of the grave health risks posed by the high concentration of fine particles in the atmosphere.
+            </p>
+            <p>
+                Meanwhile, Nebel City has been designed as a dome-shaped structure, providing a secure space shielded from external environmental pollution. With a fully self-sufficient system, the city maintains a clean and safe environment without any reliance on external contact.
+            </p>
+            <p>
+                A city official stated, "Nebel City is more than just an automated metropolis—it represents a new paradigm for humanity to survive amidst extreme environmental changes," reassuring citizens of their safety within its walls.
+            </p>
+        </div>
+
+        <div class="ad-section" id="ad-section" data-link="https://www.instagram.com/p/DBYIc60TnGX/?igsh=amtqY2N1bzlkN2Nz">
+            <img class="button" src="./image/xbutton.png" width="30px" id="close-ad">
+            <img class="adImage" src="./image/ad2.jpg" height="500px" alt="Advertisement">
+        </div>
+        <script>
+            document.getElementById("close-ad").addEventListener("click", function() {
+                event.stopPropagation();
+                document.getElementById("ad-section").style.display = "none";
+            });
+            document.getElementById("ad-section").addEventListener('click', function(){
+                const link = this.getAttribute('data-link');
+                window.location.href = link;
+            });
+        </script>
+    </div>
+
+    <div id="footer"></div>
+</body>
+</html>
