@@ -112,6 +112,10 @@
             document.getElementById("close-ad").addEventListener("click", function() {
             document.getElementById("ad-section").style.display = "none";
             });
+            document.getElementById("ad-section").addEventListener('click', function(){
+                const link = this.getAttribute('data-link');
+                window.location.href = link;
+            });
         </script>
     </div>
 
