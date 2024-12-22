@@ -104,13 +104,14 @@
             </p>
         </div>
 
-        <div class="ad-section" id="ad-section" data-link="https://www.instagram.com/p/DBYIc60TnGX/?igsh=amtqY2N1bzlkN2Nz">
+        <div class="ad-section" id="ad-section" data-link="https://www.instagram.com/bluenegative.game/?igsh=YXNrOXZlZ2J3endh">
             <img class="button" src="./image/xbutton.png" width="30px" id="close-ad">
             <img class="adImage" src="./image/cityad1.jpg" height="540px" alt="Advertisement">
         </div>
         <script>
             document.getElementById("close-ad").addEventListener("click", function() {
-            document.getElementById("ad-section").style.display = "none";
+                event.stopPropagation();
+                document.getElementById("ad-section").style.display = "none";
             });
             document.getElementById("ad-section").addEventListener('click', function(){
                 const link = this.getAttribute('data-link');

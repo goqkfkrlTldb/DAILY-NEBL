@@ -183,7 +183,7 @@
         });
     </script>
 
-    <div class="advertisement" id="advertisement" data-link="https://www.instagram.com/p/DBYIc60TnGX/?igsh=amtqY2N1bzlkN2Nz">
+    <div class="advertisement" id="advertisement" data-link="https://www.instagram.com/bluenegative.game/?igsh=YXNrOXZlZ2J3endh">
         
         <img class="button" src="./image/xbutton.png" width="30px" id="close-ad">
         <img class="ad" src="./image/cityad6.jpg" width="100%">
@@ -191,9 +191,10 @@
 
     <script>
         document.getElementById("close-ad").addEventListener("click", function() {
-        document.getElementById("advertisement").style.display = "none";
-        });
-        document.getElementById("advertisement").addEventListener('click', function(){
+                event.stopPropagation();
+                document.getElementById("advertisement").style.display = "none";
+            });
+            document.getElementById("advertisement").addEventListener('click', function(){
                 const link = this.getAttribute('data-link');
                 window.location.href = link;
             });

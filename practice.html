@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinalProject</title>
+    <!--<script src="libs/jquery-1.11.0.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#load").load("base.html");
+        })
+
+        
+    </script>
+    <style>
+        *{box-sizing: border-box;}
+
+        #ad3{
+            position:fixed; text-align:center; padding:50px; 
+            width:50px; height:50px; top:50px; right:50px; 
+            background-color:red; color:white;
+        }
+
+        .space1{
+            display: flex;
+            flex-direction: row;
+        }
+
+        
+        
+        .article1{
+            flex: 1 1 70%;
+            text-align: center;
+            background-color: beige;
+        }
+
+        .ad1{
+            flex: 1 1 30%;
+            text-align: center;
+            background-color: powderblue;
+        }
+
+        .space2{
+            display: flex;
+            text-align: center;
+            flex-direction: row;
+        }
+
+        .ad2{
+            flex: 1 1 40%;
+            text-align: center;
+            background-color: powderblue;
+        }
+
+        .article2{
+            flex: 1 1 60%;
+            text-align: center;
+            background-color: beige;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="ad3">it's ad</div>
+
+    <div id="load"></div>
+
+    <div class="space1">
+        <div class="article1">
+            <h2>Title1</h2>
+            <h5>content</h5>
+        </div>
+        <div class="ad1">
+            <h3>Mask Advertisement</h3>
+        </div>
+    </div>
+
+    <div class="space2">
+        <div class="ad2">
+            <h3>City Advertisement</h3>
+        </div>
+        <div class="article2">
+            <h2>Title2</h2>
+            <h5>content</h5>
+        </div>
+    </div>
+
+    <div class="space3">
+        <div class="article3">
+            <h2>Title3</h2>
+            <h5>content</h5>
+        </div>
+    </div>
+
+    <footer class="footer"></footer>
+</body>
+</html>
