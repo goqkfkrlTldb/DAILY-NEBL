@@ -193,6 +193,10 @@
         document.getElementById("close-ad").addEventListener("click", function() {
         document.getElementById("advertisement").style.display = "none";
         });
+        document.getElementById("advertisement").addEventListener('click', function(){
+                const link = this.getAttribute('data-link');
+                window.location.href = link;
+            });
     </script>
 
     <!-- Footer -->
